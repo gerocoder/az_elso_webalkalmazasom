@@ -65,13 +65,15 @@ html, body {
     font-size: 18px;
     font-weight: 700;
     color: white;
+    text-shadow: 1px 1px 3px black;
 }
 
 #textBox p {
     margin: 0;
     font-size: 15px;
     font-weight: 400;
-    color: #bbb;
+    color: #ccc;
+    text-shadow: 1px 1px 3px black;
 }
 
 #thumbnailBox {
@@ -89,11 +91,7 @@ html, body {
     transition: opacity .2s ease-out;
 }
 
-#buttonLeft:hover .arrow {
-    opacity: 0.3;
-}
-
-#buttonRight:hover .arrow {
+#buttonLeft:hover .arrow, #buttonRight:hover .arrow {
     opacity: 0.3;
 }
 
@@ -105,6 +103,10 @@ html, body {
     border: solid 3px white;
     border-radius: 3px;
     box-shadow: 0px 2px 4px #444;
+    background-color: green;
+    width: 40px;
+    height: 40px;
+    position: relative;
 }
 
 .thumbnail:hover {
@@ -115,4 +117,51 @@ html, body {
 .selection {
     margin-top: -6px;
     box-shadow: 0px 5px 4px #444;
+}
+
+.imageInfo {
+    padding: 5px;
+    position: absolute;
+    border-radius: 3px;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    user-select: none;
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+.arrow-down {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid black;
+    visibility: hidden;
+}
+
+.thumbnail:hover .imageInfo, .thumbnail:hover .arrow-down {
+    visibility: visible;
+}
+
+#imageBox:hover #textBox {
+    opacity: 1;
+}
+
+#textBox {
+    opacity: 1;
+}
+  
+#imageBox:not(:hover) #textBox {
+    opacity: 0;
+    transition: opacity 5s ease-out 5s;
 }

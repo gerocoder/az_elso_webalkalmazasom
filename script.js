@@ -36,7 +36,13 @@ function loadPhoto(i) {
 }
 
 for (let i = 0; i < data.length; i++) {
-    $('#thumbnailBox').append(`<img class="thumbnail" src="./images/${data[i].photo}_tn.jpg" data-number=${i}></img>`);
+    $('#thumbnailBox').append(`
+        <div class="thumbnail" data-number="${i}">
+            <img src="./images/${data[i].photo}_tn.jpg">
+            <div class="imageInfo">${data[i].title}</div>
+            <div class="arrow-down"></div>
+        </div>
+    `);
 }
 
 loadPhoto(currentPhoto);
